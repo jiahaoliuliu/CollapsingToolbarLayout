@@ -11,7 +11,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.journaldev.collapsingtoolbarlayout.R;
+import com.jiahaoliuliu.collapsingtoolbarlayout.R;
 
 public class ScrollingActivity extends AppCompatActivity {
 
