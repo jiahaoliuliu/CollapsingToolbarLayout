@@ -34,7 +34,7 @@ class MainActivity: AppCompatActivity() {
                 POSITION_WITH_VIEW_PAGER -> startActivity(Intent(this, NormalScrollingViewPagerActivity::class.java))
                 POSITION_WITH_VIEW_PAGER_AND_TAB -> startActivity(Intent(this, NormalScrollingViewPagerTabActivity::class.java))
                 POSITION_WITH_VIEW_PAGER_TAB_AND_RECYCLER_VIEW
-                    -> startActivity(Intent(this, NormalScrollingActivity::class.java))
+                    -> startActivity(Intent(this, NormalScrollingViewPagerTabRecyclerViewActivity::class.java))
             }
         }
     }
