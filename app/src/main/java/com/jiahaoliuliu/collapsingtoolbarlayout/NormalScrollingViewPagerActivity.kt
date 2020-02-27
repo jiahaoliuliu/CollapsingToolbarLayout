@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -17,15 +18,27 @@ class NormalScrollingViewPagerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_with_view_pager)
+        setupToolbar()
+        setupFloatingActionButton()
+        setupAppBar()
+        setupViewPager()
+    }
+
+    private fun setupToolbar() {
         val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
+    }
+
+    private fun setupFloatingActionButton() {
         val fab = findViewById<View>(R.id.fab) as FloatingActionButton
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
-        val appBarLayout =
-            findViewById<View>(R.id.app_bar) as AppBarLayout
+    }
+
+    private fun setupAppBar() {
+        val appBarLayout = findViewById<View>(R.id.app_bar) as AppBarLayout
         appBarLayout.addOnOffsetChangedListener(object : OnOffsetChangedListener {
             var isShow = false
             var scrollRange = -1
@@ -45,6 +58,12 @@ class NormalScrollingViewPagerActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    private fun setupViewPager() {
+        val viewPager = findViewById<ViewPager2>(R.id.pager)
+        val viewPagerAdapter = ViewPagerAdapter(this)
+        viewPager.adapter = viewPagerAdapter
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean { // Inflate the menu; this adds items to the action bar if it is present.

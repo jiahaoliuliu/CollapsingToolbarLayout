@@ -17,15 +17,27 @@ class NormalScrollingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scrolling)
+        setupToolbar()
+        setupFloatingActionButton()
+        setupAppBar()
+        setupViewPager()
+    }
+
+    private fun setupToolbar() {
         val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
+    }
+
+    private fun setupFloatingActionButton() {
         val fab = findViewById<View>(R.id.fab) as FloatingActionButton
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
-        val appBarLayout =
-            findViewById<View>(R.id.app_bar) as AppBarLayout
+    }
+
+    private fun setupAppBar() {
+        val appBarLayout = findViewById<View>(R.id.app_bar) as AppBarLayout
         appBarLayout.addOnOffsetChangedListener(object : OnOffsetChangedListener {
             var isShow = false
             var scrollRange = -1
@@ -45,6 +57,10 @@ class NormalScrollingActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    private fun setupViewPager() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean { // Inflate the menu; this adds items to the action bar if it is present.
