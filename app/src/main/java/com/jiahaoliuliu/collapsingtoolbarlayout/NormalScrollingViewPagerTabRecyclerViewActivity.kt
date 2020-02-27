@@ -14,14 +14,14 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-class NormalScrollingViewPagerTabActivity : AppCompatActivity() {
+class NormalScrollingViewPagerTabRecyclerViewActivity : AppCompatActivity() {
 
     private lateinit var viewPager: ViewPager2
     private var menu: Menu? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_with_view_pager_tab)
+        setContentView(R.layout.activity_with_view_pager_tab_recycler_view)
         setupToolbar()
         setupFloatingActionButton()
         setupAppBar()
@@ -67,7 +67,7 @@ class NormalScrollingViewPagerTabActivity : AppCompatActivity() {
 
     private fun setupViewPager() {
         viewPager = findViewById<ViewPager2>(R.id.pager)
-        val viewPagerAdapter = ViewPagerAdapter(this)
+        val viewPagerAdapter = ViewPagerAdapterWithRecyclerView(this)
         viewPager.adapter = viewPagerAdapter
     }
 

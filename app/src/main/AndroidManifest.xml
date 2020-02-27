@@ -33,5 +33,10 @@
             android:label="@string/screen_name_normal_with_view_pager_and_tab"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".NormalScrollingViewPagerTabRecyclerViewActivity"
+            android:label="@string/screen_name_normal_with_view_pager_tab_and_recycler_view"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 </manifest>
