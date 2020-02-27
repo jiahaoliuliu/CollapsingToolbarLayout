@@ -72,8 +72,8 @@ class NormalScrollingViewPagerTabActivity : AppCompatActivity() {
     }
 
     private fun setupTab() {
-        val tab = findViewById<TabLayout>(R.id.tab)
-        TabLayoutMediator(tab, viewPager) {
+        val tabLayout = findViewById<TabLayout>(R.id.tab)
+        TabLayoutMediator(tabLayout, viewPager) {
             tab, position -> tab.text="tab $position"
         }.attach()
     }
