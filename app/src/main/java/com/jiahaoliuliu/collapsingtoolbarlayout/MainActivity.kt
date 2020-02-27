@@ -31,7 +31,8 @@ class MainActivity: AppCompatActivity() {
         listView.setOnItemClickListener { _, _ , position, _ ->
             when(position) {
                 POSITION_NORMAL -> startActivity(Intent(this, NormalScrollingActivity::class.java))
-                POSITION_WITH_VIEW_PAGER, POSITION_WITH_VIEW_PAGER_AND_TAB, POSITION_WITH_VIEW_PAGER_TAB_AND_RECYCLER_VIEW
+                POSITION_WITH_VIEW_PAGER -> startActivity(Intent(this, NormalScrollingViewPagerActivity::class.java))
+                POSITION_WITH_VIEW_PAGER_AND_TAB, POSITION_WITH_VIEW_PAGER_TAB_AND_RECYCLER_VIEW
                     -> startActivity(Intent(this, NormalScrollingActivity::class.java))
             }
         }
