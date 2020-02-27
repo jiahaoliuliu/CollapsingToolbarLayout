@@ -6,20 +6,27 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
-class NormalScrollingActivity : AppCompatActivity() {
+class NormalScrollingViewPagerTabActivity : AppCompatActivity() {
+
+    private lateinit var viewPager: ViewPager2
     private var menu: Menu? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_scrolling)
+        setContentView(R.layout.activity_with_view_pager_tab)
         setupToolbar()
         setupFloatingActionButton()
         setupAppBar()
+        setupViewPager()
+        setupTab()
     }
 
     private fun setupToolbar() {
@@ -56,6 +63,19 @@ class NormalScrollingActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    private fun setupViewPager() {
+        viewPager = findViewById<ViewPager2>(R.id.pager)
+        val viewPagerAdapter = ViewPagerAdapter(this)
+        viewPager.adapter = viewPagerAdapter
+    }
+
+    private fun setupTab() {
+        val tab = findViewById<TabLayout>(R.id.tab)
+        TabLayoutMediator(tab, viewPager) {
+            tab, position -> tab.text="tab $position"
+        }.attach()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean { // Inflate the menu; this adds items to the action bar if it is present.
