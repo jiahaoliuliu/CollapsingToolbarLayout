@@ -12,7 +12,7 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-public class ScrollingActivity extends AppCompatActivity {
+public class NormalScrollingActivity extends AppCompatActivity {
 
     private Menu menu;
 
